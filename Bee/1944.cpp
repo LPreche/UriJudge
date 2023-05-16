@@ -11,10 +11,10 @@ int main(){
     vector<string> painel;
     
     cin >> N;
-
-    for(auto i = 0; i < N; i++){
+    int a=0;
+    for(auto i = 1; i < N+1; i++){
         if(painel.empty()){
-            i++;
+            a++;
             painel.push_back("FACE");
         }
         vector<char> F(4);
@@ -27,22 +27,21 @@ int main(){
 
         painel.push_back(palavra);
 
-        vector<char> C(painel[i-1].begin(), painel[i-1].end());
+        vector<char> C(painel[a-1].begin(), painel[a-1].end());
 
         for(auto k=3;k>=0;k--)
            antInvertida += C[k];
         
-        if(antInvertida == painel[i]){
+        if(antInvertida == painel[a]){
             gBrindes++;
             painel.pop_back();
             painel.pop_back();
+            a-=2;
         }    
-        for(auto c : painel)
-            cout << c << endl;
+        a++;
     }
 
-    
-    cout << "Ganhadores: " << gBrindes << endl;
+    cout << gBrindes << endl;
         
     return 0;
 }
