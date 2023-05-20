@@ -25,16 +25,47 @@ int main() {
             cin.ignore(); // Descartar o caractere de nova linha após a leitura do tamanho
             alunos.push_back(aluno);   
         }
-        list<string> informacoes;
-        for (Alunos aluno : alunos){
-            string temp = aluno.cor + " " + aluno.tamanho + " " + aluno.nome;
-            informacoes.push_back(temp);
+        list<string> brancoP,brancoM,brancoG,vermelhoP,vermelhoM,vermelhoG;
+        for(Alunos A : alunos){
+            if(A.cor =="branco" && A.tamanho =='P')
+                brancoP.push_back(A.nome);
+            else if(A.cor == "branco" && A.tamanho =='M')
+                brancoM.push_back(A.nome);
+            else if(A.cor == "branco" && A.tamanho =='G')
+                brancoG.push_back(A.nome);
+            else if(A.cor == "vermelho" && A.tamanho =='P')
+                vermelhoP.push_back(A.nome);
+            else if(A.cor == "vermelho" && A.tamanho =='M')
+                vermelhoM.push_back(A.nome);
+            else if(A.cor == "vermelho" && A.tamanho =='G')
+                vermelhoG.push_back(A.nome);
         }
+        brancoP.sort();
+        brancoM.sort();
+        brancoG.sort();
+        vermelhoP.sort();
+        vermelhoM.sort();
+        vermelhoG.sort();
         
-        informacoes.sort();
+        for(string NC : brancoP){
+            cout << "branco P "<< NC << endl;
+        }
 
-        for(string I : informacoes)
-            cout << I << endl;
+        for(string NC : brancoM){
+            cout << "branco M "<< NC << endl;
+        }
+        for(string NC : brancoG){
+            cout << "branco G "<< NC << endl;
+        }
+        for(string NC : vermelhoP){
+            cout << "vermelho P "<< NC << endl;
+        }
+        for(string NC : vermelhoM){
+            cout << "vermelho M "<< NC << endl;
+        }
+        for(string NC : vermelhoG){
+            cout << "vermelho G "<< NC << endl;
+        }
 
         cout << endl;
     }
