@@ -3,6 +3,7 @@
 #include <vector>
 #include <list>
 #include <algorithm>
+
 using namespace std;
 
 struct Alunos {
@@ -13,11 +14,10 @@ struct Alunos {
 
 int main() {
     int N;
-
+    bool controle = true;
     while (cin >> N && N != 0) {
         vector<Alunos> alunos;
         cin.ignore();
-
         for (int i = 0; i < N; i++) {
             Alunos aluno;
             getline(cin, aluno.nome);
@@ -40,6 +40,7 @@ int main() {
             else if(A.cor == "vermelho" && A.tamanho =='G')
                 vermelhoG.push_back(A.nome);
         }
+        
         brancoP.sort();
         brancoM.sort();
         brancoG.sort();
@@ -47,27 +48,24 @@ int main() {
         vermelhoM.sort();
         vermelhoG.sort();
         
-        for(string NC : brancoP){
+        if(!controle)
+            cout << endl;
+        else
+            controle = false;
+
+        for(string NC : brancoP)
             cout << "branco P "<< NC << endl;
-        }
-
-        for(string NC : brancoM){
+        for(string NC : brancoM)
             cout << "branco M "<< NC << endl;
-        }
-        for(string NC : brancoG){
+        for(string NC : brancoG)
             cout << "branco G "<< NC << endl;
-        }
-        for(string NC : vermelhoP){
+        for(string NC : vermelhoP)
             cout << "vermelho P "<< NC << endl;
-        }
-        for(string NC : vermelhoM){
+        for(string NC : vermelhoM)
             cout << "vermelho M "<< NC << endl;
-        }
-        for(string NC : vermelhoG){
+        for(string NC : vermelhoG)
             cout << "vermelho G "<< NC << endl;
-        }
-
-        cout << endl;
+        
     }
 
     return 0;
